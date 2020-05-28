@@ -2,6 +2,9 @@ backend:
   name: github,
   repo: iteam-consulting/bonanza-creek-ranch-com
 
+media_folder: static/assets
+public_folder: /assets
+
 collections:
   - name: sets
     label: Sets
