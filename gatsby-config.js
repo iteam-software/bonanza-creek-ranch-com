@@ -16,7 +16,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    "gatsby-plugin-sass",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -27,13 +26,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     "gatsby-transformer-remark",
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_CLIENT_ID,
-        accessToken: process.env.CONTENTFUL_CLIENT_SECRET,
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
