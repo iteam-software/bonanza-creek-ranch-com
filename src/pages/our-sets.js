@@ -46,7 +46,7 @@ export default function OurSetsPage({ data }) {
 
   return (
     <>
-      <SEO title="Our Sets: Bonanza Creek Movie Ranch" />
+      <SEO title="Our Sets" />
       <Layout>
         <Splash images={[sets1, sets2, sets3, sets4, sets5]} />
         <Container>

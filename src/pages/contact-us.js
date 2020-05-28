@@ -18,7 +18,7 @@ export default function ContactUsPage() {
 
   return (
     <>
-      <SEO title="Contact Us: Bonanza Creek Movie Ranch" />
+      <SEO title="Contact Us" />
       <Layout>
         <Splash imgUrl={contactSign}></Splash>
         <Container>

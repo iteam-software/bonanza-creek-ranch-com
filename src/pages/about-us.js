@@ -18,7 +18,7 @@ import bcrSign from "../images/BCR-metal-sign-1x.png";
 export default function AboutUsPage() {
   return (
     <>
-      <SEO title="About Us: Bonanza Creek Movie Ranch" />
+      <SEO title="About Us" />
       <Layout>
         <Splash images={[about1, about2, about3, about4, about5]} />
         <Container>

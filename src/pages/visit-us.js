@@ -17,7 +17,7 @@ import visit5 from "../images/splashes/visit5.jpg";
 export default function VisitUsPage() {
   return (
     <>
-      <SEO title="Visit Us: Bonanza Creek Movie Ranch" />
+      <SEO title="Visit Us" />
       <Layout>
         <Splash images={[visit1, visit2, visit3, visit4, visit5]}></Splash>
         <Container>

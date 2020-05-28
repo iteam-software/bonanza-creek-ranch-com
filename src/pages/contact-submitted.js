@@ -7,7 +7,7 @@ import SEO from "../components/seo";
 export default function ContactSubmitted() {
   return (
     <>
-      <SEO title="Contact Submitted: Bonanza Creek Movie Ranch" />
+      <SEO title="Contact Submitted" />
       <Layout>
         <Container style={{ paddingTop: 80 }}>
           <h1>Thank You!</h1>

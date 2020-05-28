@@ -17,7 +17,7 @@ import history5 from "../images/splashes/history5.jpg";
 export default function OurHistoryPage() {
   return (
     <>
-      <SEO title="Our History: Bonanza Creek Movie Ranch" />
+      <SEO title="Our History" />
       <Layout>
         <Splash images={[history1, history2, history3, history4, history5]} />
         <Container>
