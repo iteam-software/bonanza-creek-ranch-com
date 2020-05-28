@@ -1,6 +1,6 @@
 ---
 title: Pond House
-thumbnail: https://res.cloudinary.com/iteam-software/image/upload/v1590687457/bonanza-creek-ranch/pond-house-thumb.jpg
+thumbnail: https://res.cloudinary.com/dtr82nmhr/image/upload/v1590688798/pond-house-thumb_nrva3b.jpg
 gallery:
   - https://res.cloudinary.com/dtr82nmhr/image/upload/v1590688797/pond-house12_lxjuvu.jpg
   - https://res.cloudinary.com/dtr82nmhr/image/upload/v1590688803/pond-house2_tpkgbv.jpg
