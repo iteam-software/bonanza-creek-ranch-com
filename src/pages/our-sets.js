@@ -19,41 +19,27 @@ import SEO from "../components/seo";
 
 export const query = graphql`
   {
-    allContentfulFilmSet {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/.*/sets/.*/" } }) {
       nodes {
-        title
-        thumbnail {
+        frontmatter {
           title
-          fluid {
-            src
-            srcSet
-            sizes
-            base64
-            aspectRatio
-          }
+          thumbnail
+          gallery
         }
-        body {
-          json
-        }
-        gallery {
-          title
-          file {
-            url
-          }
-        }
+        rawMarkdownBody
       }
     }
   }
 `;
 
 export default function OurSetsPage({ data }) {
-  const sets = data.allContentfulFilmSet.nodes.map(node => (
-    <SimpleReactLightbox key={node.title}>
+  const sets = data.allMarkdownRemark.nodes.map(node => (
+    <SimpleReactLightbox key={node.frontmatter.title}>
       <Set
-        title={node.title}
-        thumbnail={node.thumbnail}
-        body={node.body.json}
-        gallery={node.gallery}
+        title={node.frontmatter.title}
+        thumbnail={node.frontmatter.thumbnail}
+        body={node.rawMarkdownBody}
+        gallery={node.frontmatter.gallery}
       />
     </SimpleReactLightbox>
   ));

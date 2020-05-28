@@ -8,13 +8,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: "gatsby-plugin-netlify",
-      options: {
-        mergeSecurityHeaders: true,
-      },
-    },
-    "gatsby-plugin-netlify-cms",
     "gatsby-plugin-sass",
     {
       resolve: `gatsby-source-filesystem`,
@@ -23,8 +16,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    "gatsby-plugin-sass",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `sets`,
+        path: `${__dirname}/sets`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    "gatsby-transformer-remark",
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -44,8 +46,17 @@ module.exports = {
         icon: `src/images/favicon.ico`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-netlify",
+      options: {
+        mergeSecurityHeaders: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
   ],
 };

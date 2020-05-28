@@ -7,26 +7,21 @@ import Flex from "./flex";
 
 export default function Set({ thumbnail, title, body, gallery }) {
   const { openLightbox } = useLightbox();
-  const images = gallery.map(image => {
-    return {
-      src: image.file.url,
-    };
-  });
+  const images = gallery.map(src => ({ src }));
 
   return (
     <>
       <Flex style={{ marginBottom: 40 }}>
         <div onClick={openLightbox} style={{ cursor: "pointer" }} role="button">
-          <Img
+          <img
             style={{ marginRight: 20, marginTop: 10, width: 227, height: 161 }}
-            fluid={thumbnail.fluid}
+            src={thumbnail}
+            title={title}
           />
         </div>
         <Flex direction="column" style={{ flex: 1, alignItems: "flex-start" }}>
           <h4 className="set-title">{title}</h4>
-          <div style={{ lineHeight: "1.05em" }}>
-            {documentToReactComponents(body)}
-          </div>
+          <div style={{ lineHeight: "1.05em" }}>{body}</div>
           <a href="javascript:;" className="link" onClick={_openLightbox}>
             Photos
           </a>

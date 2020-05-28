@@ -5,6 +5,13 @@ backend:
 media_folder: static/assets
 public_folder: /assets
 
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: dtr82nmhr
+    api_key: 318749173396793
+    max_files: 100
+
 collections:
   - name: sets
     label: Sets
@@ -16,7 +23,7 @@ collections:
       - {
           name: gallery,
           label: Gallery,
-          widget: list,
-          field: { name: image, label: Image, widget: image },
+          widget: image,
+          media_library: { config: { multiple: true } },
         }
       - { name: body, label: Body, widget: markdown }
