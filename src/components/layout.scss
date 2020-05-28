@@ -1,0 +1,35 @@
+*,
+* > * {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: black;
+  background: url("../images/dark-wood.jpg") repeat;
+}
+
+main {
+  background-image: url("../images/content-bg.png");
+}
+
+footer {
+  text-align: center;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: var(--light-brown);
+  background-image: url("../images/footer.png");
+  padding: 10px;
+
+  address {
+    font-style: normal;
+    margin: 0;
+    font-size: 0.8em;
+  }
+}
+
+#SRLLightbox {
+  z-index: 9999;
+}

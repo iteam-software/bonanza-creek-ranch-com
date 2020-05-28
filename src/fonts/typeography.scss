@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "Rio Oro";
+  src: url("../fonts/rio-oro.ttf") format("truetype");
+}
+
+p {
+  line-height: 1.3em;
+  font-weight: 400;
+
+  &.muted {
+    color: #561512;
+    font-size: 0.85em;
+    font-weight: 300;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rio Oro", "Rosewood Std Regular", Georgia, "Times New Roman",
+    serif;
+  color: var(--brand-red);
+  margin: "1rem 0";
+
+  &.jumbo {
+    font-size: 250%;
+  }
+
+  &.tagline {
+    font-family: inherit;
+    text-align: center;
+    font-style: italic;
+    color: #5a3025;
+  }
+
+  &.set-title {
+    font-family: inherit;
+    color: #5a3025;
+  }
+}
+
+a {
+  color: var(--brand-red);
+  border-bottom: 1px dotted;
+  text-decoration: none;
+
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+html,
+body {
+  font-family: "Helvetica Condensed", "Helvetica Narrow", Helvetica, Tahoma,
+    "Lucida Sans", sans-serif;
+  font-size: 16px;
+}
