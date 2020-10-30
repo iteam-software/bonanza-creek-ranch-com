@@ -29,7 +29,7 @@ export default function OurHistoryPage({data:{ splashes }}) {
     <>
       <SEO title="Our History" />
       <Layout>
-        <Splash images={splashes.nodes} />
+        <Splash images={splashes?.nodes} />
         <Container>
           <h1>Our History</h1>
           <ContentGrid>

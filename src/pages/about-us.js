@@ -77,7 +77,7 @@ const AboutUsPage = ({data:{ splashes, bcrSign }}) => {
             <Flex direction="column" style={{ alignItems: "center" }}>
               <Card>
                 <img 
-                  src={bcrSign.childImageSharp.fluid.src} 
+                  src={bcrSign?.childImageSharp?.fluid?.src} 
                   alt="Bonanza Creek Ranch"
                 ></img>
               </Card>

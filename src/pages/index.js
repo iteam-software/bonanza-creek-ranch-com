@@ -94,18 +94,18 @@ const IndexPage = ({ data:{ splashes,portfolio,drone,cowboysAndAliens } }) => {
             <Card>
               <Portfolio
                 images={portfolio.nodes.map(
-                  node => node.childImageSharp.original
+                  node => node?.childImageSharp?.original
                 )}
               >
                 <Img
-                  fluid={drone.childImageSharp.fluid}
+                  fluid={drone?.childImageSharp?.fluid}
                   alt="View drone photos by Monsoon DroneWorx"
                 ></Img>
               </Portfolio>
             </Card>
             <Card>
               <Img
-                fluid={cowboysAndAliens.childImageSharp.fluid}
+                fluid={cowboysAndAliens?.childImageSharp?.fluid}
                 alt="Cowboys and Aliens"
               ></Img>
             </Card>

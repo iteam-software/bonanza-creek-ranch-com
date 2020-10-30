@@ -9,7 +9,7 @@ export default function Splash({ imgUrl, images }) {
     const items = images.map(image => {
       return(
       <Carousel.Item key={image.id}>
-        <Img fluid={image.childImageSharp.fluid} role="presentation"></Img>
+        <Img fluid={image?.childImageSharp?.fluid} role="presentation"></Img>
       </Carousel.Item>
       )
     });

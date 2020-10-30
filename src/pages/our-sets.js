@@ -38,12 +38,12 @@ export const query = graphql`
 
 const OurSetsPage = ({ data:{ setsInfo, splashes }}) => {
   const sets = setsInfo.nodes.map(node => (
-    <SimpleReactLightbox key={node.frontmatter.title}>
+    <SimpleReactLightbox key={node?.frontmatter?.title}>
       <Set
-        title={node.frontmatter.title}
-        thumbnail={node.frontmatter.thumbnail}
-        body={node.rawMarkdownBody}
-        gallery={node.frontmatter.gallery}
+        title={node?.frontmatter?.title}
+        thumbnail={node?.frontmatter?.thumbnail}
+        body={node?.rawMarkdownBody}
+        gallery={node?.frontmatter?.gallery}
       />
     </SimpleReactLightbox>
   ));

@@ -29,7 +29,7 @@ export default function VisitUsPage({data:{ splashes }}) {
     <>
       <SEO title="Visit Us" />
       <Layout>
-        <Splash images={splashes.nodes}></Splash>
+        <Splash images={splashes?.nodes}></Splash>
         <Container>
           <h1>Visit Us</h1>
           <ContentGrid>

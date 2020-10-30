@@ -31,7 +31,7 @@ const ContactUsPage = ({data:{ contactSign }}) => {
     <>
       <SEO title="Contact Us" />
       <Layout>
-        <Splash imgUrl={contactSign.childImageSharp.fluid}></Splash>
+        <Splash imgUrl={contactSign?.childImageSharp?.fluid}></Splash>
         <Container>
           <h1>Contact Us</h1>
           <ContentGrid>
