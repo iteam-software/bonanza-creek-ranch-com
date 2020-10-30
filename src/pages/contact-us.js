@@ -12,8 +12,6 @@ import Splash from "../components/splash";
 import Map from "../components/map";
 import SEO from "../components/seo";
 
-import contactSign from "../images/contact-hwy-sign.jpg";
-
 export const query = graphql`
 {
   contactSign: file(relativePath: {regex: "images/contact-hwy-sign.jpg/"}) {

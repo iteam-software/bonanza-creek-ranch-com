@@ -21,7 +21,6 @@ export default function Splash({ imgUrl, images }) {
   }
 
   return (
-    //<div className="splash" style={{ backgroundImage: `url(${imgUrl})` }}></div>
     <div className="splash">
       <Img fluid={imgUrl}></Img>
     </div>
