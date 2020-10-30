@@ -1,6 +1,7 @@
 import React from "react";
 import SimpleReactLightbox from "simple-react-lightbox";
 import { graphql } from "gatsby";
+import Img from "gatsby-image"
 
 import Layout from "../components/layout";
 import Splash from "../components/splash";
@@ -12,18 +13,19 @@ import Card from "../components/card";
 import ContentGrid from "../components/content-grid";
 import Portfolio from "../components/portfolio";
 
-import img1 from "../images/splashes/img1.jpg";
-import img2 from "../images/splashes/img2.jpg";
-import img3 from "../images/splashes/img3.jpg";
-import img4 from "../images/splashes/img4.jpg";
-import img5 from "../images/splashes/img5.jpg";
-
-import drone from "../images/drone-1x.png";
-import cowboysAndAliens from "../images/cowboys-and-aliens-1x.png";
-
 export const query = graphql`
   {
-    allFile(filter: { relativePath: { regex: "/.*/portfolio/.*/" } }) {
+    splashes: allFile(filter: {relativePath: {regex: "images/splashes/img.*.jpg/"}}) {
+      nodes {
+        childImageSharp {
+          fluid (maxWidth: 4000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+        id
+      }
+    }
+    portfolio: allFile(filter: { relativePath: { regex: "/.*/portfolio/.*/" } }) {
       nodes {
         childImageSharp {
           ... on ImageSharp {
@@ -32,16 +34,32 @@ export const query = graphql`
             }
           }
         }
+        id
+      }
+    }
+    drone: file(relativePath: {regex: "images/drone-1x.png/"}) {
+      childImageSharp {
+        fluid (maxWidth: 4000, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    cowboysAndAliens: file(relativePath: {regex: "images/cowboys-and-aliens-1x.png/"}) {
+      childImageSharp {
+        fluid (maxWidth: 4000, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
   }
 `;
 
-const IndexPage = ({ data }) => (
+const IndexPage = ({ data:{ splashes,portfolio,drone,cowboysAndAliens } }) => {
+  return(
   <SimpleReactLightbox>
     <SEO title="Bonanza Creek Movie Ranch" />
     <Layout>
-      <Splash images={[img1, img2, img3, img4, img5]} />
+      <Splash images={splashes.nodes} />
       <Container>
         <h1>Welcome!</h1>
         <ContentGrid>
@@ -75,24 +93,28 @@ const IndexPage = ({ data }) => (
           <Grid columns="1fr">
             <Card>
               <Portfolio
-                images={data.allFile.nodes.map(
+                images={portfolio.nodes.map(
                   node => node.childImageSharp.original
                 )}
               >
-                <img
-                  src={drone}
+                <Img
+                  fluid={drone.childImageSharp.fluid}
                   alt="View drone photos by Monsoon DroneWorx"
-                ></img>
+                ></Img>
               </Portfolio>
             </Card>
             <Card>
-              <img src={cowboysAndAliens} alt="Cowboys and Aliens"></img>
+              <Img
+                fluid={cowboysAndAliens.childImageSharp.fluid}
+                alt="Cowboys and Aliens"
+              ></Img>
             </Card>
           </Grid>
         </ContentGrid>
       </Container>
     </Layout>
   </SimpleReactLightbox>
-);
+  )
+};
 
 export default IndexPage;

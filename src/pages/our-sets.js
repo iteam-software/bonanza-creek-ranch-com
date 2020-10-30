@@ -1,12 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import sets1 from "../images/splashes/sets1.jpg";
-import sets2 from "../images/splashes/sets2.jpg";
-import sets3 from "../images/splashes/sets3.jpg";
-import sets4 from "../images/splashes/sets4.jpg";
-import sets5 from "../images/splashes/sets5.jpg";
-
 import Layout from "../components/layout";
 import ContentGrid from "../components/content-grid";
 import SpecialFeatures from "../components/special-features";
@@ -19,7 +13,7 @@ import SEO from "../components/seo";
 
 export const query = graphql`
   {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/.*/sets/.*/" } }) {
+    setsInfo: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/.*/sets/.*/" } }) {
       nodes {
         frontmatter {
           title
@@ -29,11 +23,21 @@ export const query = graphql`
         rawMarkdownBody
       }
     }
+    splashes: allFile(filter: {relativePath: {regex: "images/splashes/sets.*.jpg/"}}) {
+      nodes {
+        childImageSharp {
+          fluid (maxWidth: 4000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+        id
+      }
+    }
   }
 `;
 
-export default function OurSetsPage({ data }) {
-  const sets = data.allMarkdownRemark.nodes.map(node => (
+const OurSetsPage = ({ data:{ setsInfo, splashes }}) => {
+  const sets = setsInfo.nodes.map(node => (
     <SimpleReactLightbox key={node.frontmatter.title}>
       <Set
         title={node.frontmatter.title}
@@ -48,7 +52,7 @@ export default function OurSetsPage({ data }) {
     <>
       <SEO title="Our Sets" />
       <Layout>
-        <Splash images={[sets1, sets2, sets3, sets4, sets5]} />
+        <Splash images={splashes.nodes} />
         <Container>
           <h1>Our Sets</h1>
           <ContentGrid>
@@ -74,3 +78,5 @@ export default function OurSetsPage({ data }) {
     </>
   );
 }
+
+export default OurSetsPage

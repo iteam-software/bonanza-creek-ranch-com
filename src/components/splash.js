@@ -1,16 +1,18 @@
 import React from "react";
-import { string, arrayOf } from "prop-types";
 import Carousel from "react-bootstrap/Carousel";
+import Img from "gatsby-image"
 
 import "./splash.css";
 
-export default function Splash({ imgUrl, images = [] }) {
-  if (images.length > 0) {
-    const items = images.map(image => (
-      <Carousel.Item key={image}>
-        <img src={image} role="presentation" />
+export default function Splash({ imgUrl, images }) {
+  if (images && images.length > 0) {
+    const items = images.map(image => {
+      return(
+      <Carousel.Item key={image.id}>
+        <Img fluid={image.childImageSharp.fluid} role="presentation"></Img>
       </Carousel.Item>
-    ));
+      )
+    });
     return <Carousel>{items}</Carousel>;
   }
 
@@ -19,11 +21,9 @@ export default function Splash({ imgUrl, images = [] }) {
   }
 
   return (
-    <div className="splash" style={{ backgroundImage: `url(${imgUrl})` }}></div>
+    //<div className="splash" style={{ backgroundImage: `url(${imgUrl})` }}></div>
+    <div className="splash">
+      <Img fluid={imgUrl}></Img>
+    </div>
   );
 }
-
-Splash.propTypes = {
-  imgUrl: string,
-  images: arrayOf(string),
-};
