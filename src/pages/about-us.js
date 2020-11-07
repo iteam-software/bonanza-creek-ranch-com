@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import Splash from "../components/splash";
@@ -8,19 +9,35 @@ import ContentGrid from "../components/content-grid";
 import Card from "../components/card";
 import SEO from "../components/seo";
 
-import about1 from "../images/splashes/about1.jpg";
-import about2 from "../images/splashes/about2.jpg";
-import about3 from "../images/splashes/about3.jpg";
-import about4 from "../images/splashes/about4.jpg";
-import about5 from "../images/splashes/about5.jpg";
-import bcrSign from "../images/BCR-metal-sign-1x.png";
+export const query = graphql`
+  {
+    splashes: allFile(filter: {relativePath: {regex: "images/splashes/about.*.jpg/"}}) {
+      nodes {
+        childImageSharp {
+          fluid (maxWidth: 4000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+        id
+      }
+    }
+    bcrSign: file(relativePath: {regex: "images/BCR-metal-sign-1x.png/"}) {
+      childImageSharp {
+        fluid (maxWidth: 4000, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+      id
+    }
+  }
+`;
 
-export default function AboutUsPage() {
+const AboutUsPage = ({data:{ splashes, bcrSign }}) => {
   return (
     <>
       <SEO title="About Us" />
       <Layout>
-        <Splash images={[about1, about2, about3, about4, about5]} />
+        <Splash images={splashes.nodes} />
         <Container>
           <h1>About Us</h1>
           <ContentGrid>
@@ -59,7 +76,10 @@ export default function AboutUsPage() {
             </div>
             <Flex direction="column" style={{ alignItems: "center" }}>
               <Card>
-                <img src={bcrSign} alt="Bonanza Creek Ranch" />
+                <img 
+                  src={bcrSign?.childImageSharp?.fluid?.src} 
+                  alt="Bonanza Creek Ranch"
+                ></img>
               </Card>
               <p className="muted">
                 The Hughes Family has owned the Bonanza Creek Ranch since the
@@ -76,3 +96,5 @@ export default function AboutUsPage() {
     </>
   );
 }
+
+export default AboutUsPage

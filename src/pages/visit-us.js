@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import Container from "../components/container";
@@ -8,18 +9,27 @@ import ContentGrid from "../components/content-grid";
 import Splash from "../components/splash";
 import SEO from "../components/seo";
 
-import visit1 from "../images/splashes/visit1.jpg";
-import visit2 from "../images/splashes/visit2.jpg";
-import visit3 from "../images/splashes/visit3.jpg";
-import visit4 from "../images/splashes/visit4.jpg";
-import visit5 from "../images/splashes/visit5.jpg";
+export const query = graphql`
+  {
+    splashes: allFile(filter: {relativePath: {regex: "images/splashes/visit.*.jpg/"}}) {
+      nodes {
+        childImageSharp {
+          fluid (maxWidth: 4000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+        id
+      }
+    }
+  }
+`;
 
-export default function VisitUsPage() {
+export default function VisitUsPage({data:{ splashes }}) {
   return (
     <>
       <SEO title="Visit Us" />
       <Layout>
-        <Splash images={[visit1, visit2, visit3, visit4, visit5]}></Splash>
+        <Splash images={splashes?.nodes}></Splash>
         <Container>
           <h1>Visit Us</h1>
           <ContentGrid>

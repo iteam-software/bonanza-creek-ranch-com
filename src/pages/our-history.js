@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import Splash from "../components/splash";
@@ -8,18 +9,27 @@ import List from "../components/list";
 import SpecialFeatures from "../components/special-features";
 import SEO from "../components/seo";
 
-import history1 from "../images/splashes/history1.jpg";
-import history2 from "../images/splashes/history2.jpg";
-import history3 from "../images/splashes/history3.jpg";
-import history4 from "../images/splashes/history4.jpg";
-import history5 from "../images/splashes/history5.jpg";
+export const query = graphql`
+  {
+    splashes: allFile(filter: {relativePath: {regex: "images/splashes/history.*.jpg/"}}) {
+      nodes {
+        childImageSharp {
+          fluid (maxWidth: 4000, quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+        id
+      }
+    }
+  }
+`;
 
-export default function OurHistoryPage() {
+export default function OurHistoryPage({data:{ splashes }}) {
   return (
     <>
       <SEO title="Our History" />
       <Layout>
-        <Splash images={[history1, history2, history3, history4, history5]} />
+        <Splash images={splashes?.nodes} />
         <Container>
           <h1>Our History</h1>
           <ContentGrid>

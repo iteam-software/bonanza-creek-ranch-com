@@ -1,6 +1,4 @@
 import React from "react";
-import Img from "gatsby-image";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { useLightbox, SRLWrapper } from "simple-react-lightbox";
 
 import Flex from "./flex";
@@ -17,6 +15,7 @@ export default function Set({ thumbnail, title, body, gallery }) {
             style={{ marginRight: 20, marginTop: 10, width: 227, height: 161 }}
             src={thumbnail}
             title={title}
+            alt={title}
           />
         </div>
         <Flex direction="column" style={{ flex: 1, alignItems: "flex-start" }}>

@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import Container from "../components/container";
@@ -11,16 +12,26 @@ import Splash from "../components/splash";
 import Map from "../components/map";
 import SEO from "../components/seo";
 
-import contactSign from "../images/contact-hwy-sign.jpg";
+export const query = graphql`
+{
+  contactSign: file(relativePath: {regex: "images/contact-hwy-sign.jpg/"}) {
+    childImageSharp {
+      fluid (maxWidth: 4000, quality: 100) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+}
+`;
 
-export default function ContactUsPage() {
+const ContactUsPage = ({data:{ contactSign }}) => {
   const formEl = useRef();
 
   return (
     <>
       <SEO title="Contact Us" />
       <Layout>
-        <Splash imgUrl={contactSign}></Splash>
+        <Splash imgUrl={contactSign?.childImageSharp?.fluid}></Splash>
         <Container>
           <h1>Contact Us</h1>
           <ContentGrid>
@@ -123,3 +134,5 @@ export default function ContactUsPage() {
     </>
   );
 }
+
+export default ContactUsPage
