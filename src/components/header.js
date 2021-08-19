@@ -7,7 +7,7 @@ import NavItem from "./nav-item";
 import "./header.css";
 
 const Header = ({ siteTitle }) => (
-  <header>
+  <header style={{ position: "relative" }}>
     <div
       style={{
         marginBottom: -40,
@@ -18,6 +18,10 @@ const Header = ({ siteTitle }) => (
       <Link to="/" style={{ border: "none" }}>
         <img src={logo} alt={siteTitle} />
       </Link>
+    </div>
+    <div style={{ position: "absolute", right: 50, top: 10 }}>
+      <h2 style={{ color: "yellow", letterSpacing: 5 }}>505.362.8255</h2>
+      <h2 style={{ color: "yellow", letterSpacing: 5 }}>505.991.6365</h2>
     </div>
     <nav>
       <NavItem to="/">Home</NavItem>

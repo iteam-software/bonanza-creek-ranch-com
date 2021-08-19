@@ -41,11 +41,11 @@ const Layout = ({ children }) => {
           >
             Bonanza Creek Ranch 2012
             <br />
-            15 Bonanza Creek Lane | Santa Fe, New Mexico 87508
+            Bonanza Creek Lane | Santa Fe, New Mexico
             <br />
-            505.471.4248 | 505.615.6159
+            505.362.8255 | 505.991.6365
             <br />
-            imobcr@gmail.com
+            bcrfilmlocations@gmail.com
           </address>
         </footer>
       </div>
