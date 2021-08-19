@@ -19,6 +19,10 @@ const Header = ({ siteTitle }) => (
         <img src={logo} alt={siteTitle} />
       </Link>
     </div>
+    <div className="numbers-div">
+      <h2 className="numbers">505.362.8255</h2>
+      <h2 className="numbers">505.991.6365</h2>
+    </div>
     <nav>
       <NavItem to="/">Home</NavItem>
       <NavItem to="/about-us">About Us</NavItem>

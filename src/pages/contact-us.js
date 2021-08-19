@@ -9,22 +9,21 @@ import Layout from "../components/layout";
 import Container from "../components/container";
 import ContentGrid from "../components/content-grid";
 import Splash from "../components/splash";
-import Map from "../components/map";
 import SEO from "../components/seo";
 
 export const query = graphql`
-{
-  contactSign: file(relativePath: {regex: "images/contact-hwy-sign.jpg/"}) {
-    childImageSharp {
-      fluid (maxWidth: 4000, quality: 100) {
-        ...GatsbyImageSharpFluid
+  {
+    contactSign: file(relativePath: { regex: "images/contact-hwy-sign.jpg/" }) {
+      childImageSharp {
+        fluid(maxWidth: 4000, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
   }
-}
 `;
 
-const ContactUsPage = ({data:{ contactSign }}) => {
+const ContactUsPage = ({ data: { contactSign } }) => {
   const formEl = useRef();
 
   return (
@@ -127,12 +126,11 @@ const ContactUsPage = ({data:{ contactSign }}) => {
                 </Form>
               )}
             </Formik>
-            <Map style={{ width: 300, height: 300 }} />
           </ContentGrid>
         </Container>
       </Layout>
     </>
   );
-}
+};
 
-export default ContactUsPage
+export default ContactUsPage;

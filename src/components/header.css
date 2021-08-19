@@ -1,8 +1,9 @@
 header {
   height: 150px;
-  background: url("../images/header-bg.jpg");
+  background: url("../images/wood.jpg");
   display: flex;
   align-items: flex-end;
+  position: relative;
 }
 
 header nav {
@@ -12,4 +13,16 @@ header nav {
 
 header nav > * {
   width: 16.6667%;
+}
+
+.numbers-div {
+  position: absolute;
+  right: 50px;
+  top: 10px;
+}
+
+.numbers {
+  color: #ddd3b1 !important;
+  letter-spacing: 5px !important;
+  text-shadow: 2px 2px black;
 }
