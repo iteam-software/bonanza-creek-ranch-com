@@ -7,7 +7,7 @@ import NavItem from "./nav-item";
 import "./header.css";
 
 const Header = ({ siteTitle }) => (
-  <header style={{ position: "relative" }}>
+  <header>
     <div
       style={{
         marginBottom: -40,
@@ -19,9 +19,9 @@ const Header = ({ siteTitle }) => (
         <img src={logo} alt={siteTitle} />
       </Link>
     </div>
-    <div style={{ position: "absolute", right: 50, top: 10 }}>
-      <h2 style={{ color: "yellow", letterSpacing: 5 }}>505.362.8255</h2>
-      <h2 style={{ color: "yellow", letterSpacing: 5 }}>505.991.6365</h2>
+    <div className="numbers-div">
+      <h2 className="numbers">505.362.8255</h2>
+      <h2 className="numbers">505.991.6365</h2>
     </div>
     <nav>
       <NavItem to="/">Home</NavItem>
