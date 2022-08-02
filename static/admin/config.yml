@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: iteam-software/bonanza-creek-ranch-com
+  branch: main
 
 media_folder: static/assets
 public_folder: /assets
